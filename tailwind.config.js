@@ -5,6 +5,18 @@ module.exports = {
     ],
     darkMode: "media",
     theme: {
+        colors: {
+            main: {
+                300: "#96d6ff",
+                600: "#0197f6"
+            },
+            white: "#f4f4f4",
+            black: "#191919"
+        },
+        fontFamily: {
+            header: ['"Open Sans"', 'sans-serif'],
+            body: ['"Roboto Mono"', 'monospace'],
+        },
         extend: {},
     },
     variants: {

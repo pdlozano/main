@@ -1,10 +1,11 @@
 import type { NextPage } from "next";
 import { MainComponent } from "../components";
+import MainPageHead from "../components/MainPageHead";
 
 const Home: NextPage = () => {
     return (
-        <MainComponent>
-            <p>Hello World!</p>
+        <MainComponent title="Hello">
+            <MainPageHead />
         </MainComponent>
     );
 };
