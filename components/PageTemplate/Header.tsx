@@ -1,14 +1,6 @@
-import MainComponent, {MainProps} from "./MainComponent";
-import Icons from "./Icons";
 import {useState} from "react";
 import {Menu} from "react-feather";
-
-function Link(props: {
-    href: string;
-    children: string;
-}) {
-    return <li><a href={props.href}>{props.children}</a></li>
-}
+import {Link} from ".";
 
 function Header() {
     const [item, setItem] = useState<boolean>(false);
@@ -37,24 +29,4 @@ function Header() {
     );
 }
 
-function PageTemplate(props: MainProps) {
-    return (
-        <MainComponent title={props.title}>
-            <Header/>
-
-            <article className="grow">
-                {props.children}
-            </article>
-
-            <footer>
-                <Icons/>
-
-                <ul>
-                    <Link href="https://google.com">Google</Link>
-                </ul>
-            </footer>
-        </MainComponent>
-    )
-}
-
-export default PageTemplate;
+export default Header;
