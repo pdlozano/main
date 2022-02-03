@@ -8,7 +8,7 @@ type IconData = {
 
 function Icon(props: IconData) {
     return (
-        <a href={props.href} aria-label={props.label} className="px-3 py-2">
+        <a href={props.href} aria-label={props.label} className="front-page-social-icons">
             {props.icon}
         </a>
     )

@@ -15,13 +15,19 @@
         @apply text-5xl;
     }
 
-    a {
-        @apply text-main-600 rounded;
-        @apply hover:bg-main-600 hover:text-black;
-        @apply focus:outline-none focus:bg-main-600 focus:text-black;
-    }
-
     p {
        @apply my-2;
+    }
+
+    a {
+        @apply text-main-600;
+    }
+}
+
+@layer components {
+    .front-page-social-icons {
+        @apply rounded px-3 py-2;
+        @apply hover:bg-main-600 hover:text-black;
+        @apply focus:outline-none focus:bg-main-600 focus:text-black;
     }
 }
