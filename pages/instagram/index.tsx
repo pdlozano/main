@@ -1,11 +1,11 @@
 import type { NextPage } from "next";
-import {MainComponent} from "../../components";
+import PageTemplate from "../../components/PageTemplate";
 
 const Instagram: NextPage = () => {
     return (
-        <MainComponent title="Instagram Posts">
+        <PageTemplate title="Instagram Posts">
             <h1>Instagram Posts</h1>
-        </MainComponent>
+        </PageTemplate>
     );
 };
 

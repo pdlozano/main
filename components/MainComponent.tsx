@@ -7,7 +7,7 @@ type MainProps = {
 
 function MainComponent(props: MainProps) {
     return (
-        <div>
+        <div className="flex flex-col min-h-screen">
             <Head>
                 <title>{props.title} | David Lozano</title>
                 <meta
@@ -27,3 +27,4 @@ function MainComponent(props: MainProps) {
 }
 
 export default MainComponent;
+export type {MainProps};
