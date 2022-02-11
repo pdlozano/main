@@ -1,4 +1,5 @@
 import Head from "next/head";
+import Header from "./Header";
 
 type MainProps = {
     children: Array<JSX.Element> | JSX.Element;
@@ -21,7 +22,11 @@ function MainComponent(props: MainProps) {
                 />
             </Head>
 
-            {props.children}
+            <Header/>
+
+            <article className="grow">
+                {props.children}
+            </article>
         </div>
     );
 }
