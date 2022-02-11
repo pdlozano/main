@@ -1,13 +1,27 @@
-import { render, screen } from "@testing-library/react";
+import '@testing-library/jest-dom/extend-expect';
+import {render, screen} from "@testing-library/react";
 import Home from "../pages/index";
 
-describe("Home", () => {
+describe("Homepage", () => {
     beforeEach(() => {
-        render(<Home />);
+        render(<Home/>);
     });
 
-    it("renders the only text", () => {
-        const item = screen.getByText("Hello World!")
-        expect(item).toBeInTheDocument;
+    it("make sure my name is in the document", () => {
+        const item = screen.getByText(/David/);
+        expect(item).toBeInTheDocument();
     });
+
+    it("social media is in the document", () => {
+        const items = [
+            /Email/,
+            /Phone/,
+            /GitHub/,
+        ];
+
+        items.map((item) => {
+            const test = screen.getByLabelText(item);
+            expect(test).toBeInTheDocument();
+        });
+    })
 });
