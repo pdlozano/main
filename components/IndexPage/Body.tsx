@@ -1,0 +1,24 @@
+import Image from "next/image";
+import Me from "../../public/me.jpg";
+
+function Body() {
+    return (
+        <div className="flex flex-col md:flex-row w-11/12 md:w-10/12 mx-auto my-5">
+            <div className="w-full md:w-1/2">
+                <Image src={Me} alt="A picture of me." placeholder="blur" objectFit="cover"/>
+            </div>
+
+            <div className="w-full md:w-1/2">
+                <h2>About Me</h2>
+                <p>My name is David. I am a proud Filipino and a web developer in my free time when I'm not studying. I
+                    have been coding for the web since 2017 when I first touched HTML and JS. Today, I code mostly in JS
+                    and Python with a very small knowledge of C++.</p>
+
+                <p>Today, I lurk around various groups on Facebook and Reddit helping beginners to love programming as
+                    well as building some projects in my free time. See some of the projects I have built.</p>
+            </div>
+        </div>
+    )
+}
+
+export default Body;

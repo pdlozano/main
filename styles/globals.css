@@ -22,6 +22,10 @@
     a {
         @apply text-main-600;
     }
+
+    img {
+        @apply rounded-md drop-shadow;
+    }
 }
 
 @layer components {
