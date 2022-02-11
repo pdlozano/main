@@ -1,6 +1,6 @@
 import type { NextPage } from "next";
 import MainComponent from "../components/MainComponent";
-import MainPageHead from "../components/MainPageHead";
+import MainPageHead from "../components/IndexPage/MainPageHead";
 
 const Home: NextPage = () => {
     return (

@@ -1,5 +1,6 @@
 import Head from "next/head";
 import Header from "./Header";
+import {useState} from "react";
 
 type MainProps = {
     children: Array<JSX.Element> | JSX.Element;
@@ -7,6 +8,8 @@ type MainProps = {
 };
 
 function MainComponent(props: MainProps) {
+    const [blur, setBlur] = useState(false);
+
     return (
         <div className="flex flex-col min-h-screen">
             <Head>
@@ -18,9 +21,9 @@ function MainComponent(props: MainProps) {
                 <meta charSet="UTF-8"/>
             </Head>
 
-            <Header/>
+            <Header setFn={setBlur}/>
 
-            <article className="grow">
+            <article className={"grow " + (blur ? "blur-md" : "blur-none")}>
                 {props.children}
             </article>
         </div>

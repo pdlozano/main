@@ -2,7 +2,11 @@ import {useState} from "react";
 import {MoreVertical, X} from "react-feather";
 import Link from "next/link";
 
-function Header() {
+type HeaderData = {
+    setFn: (blur: boolean) => void;
+}
+
+function Header(props: HeaderData) {
     const [item, setItem] = useState<boolean>(true);
 
     return (
@@ -13,6 +17,7 @@ function Header() {
                 <button aria-label="Open Menu" onClick={(event) => {
                     event.preventDefault();
                     setItem(!item);
+                    props.setFn(true);
                 }}>
                     <MoreVertical/>
                 </button>
@@ -22,6 +27,7 @@ function Header() {
                         <button aria-label="Close Menu" onClick={(event) => {
                             event.preventDefault();
                             setItem(!item);
+                            props.setFn(false);
                         }}>
                             <X/>
                         </button>
