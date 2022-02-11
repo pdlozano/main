@@ -10,7 +10,7 @@ function Header(props: HeaderData) {
     const [item, setItem] = useState<boolean>(true);
 
     return (
-        <header className="flex items-center justify-between mx-5 bg-gray px-5 py-1 rounded mt-4 drop-shadow">
+        <header className="header-footer items-center justify-between">
             <p className="text-xl font-bold font-body"><Link href="/">David Lozano</Link></p>
 
             <nav>

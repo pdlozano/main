@@ -25,6 +25,10 @@
 }
 
 @layer components {
+    .header-footer {
+        @apply mx-5 bg-gray px-5 py-1 rounded my-4 flex drop-shadow;
+    }
+
     .front-page-social-icons {
         @apply rounded px-3 py-2;
         @apply hover:bg-main-600 hover:text-black;

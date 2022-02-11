@@ -1,6 +1,7 @@
 import Head from "next/head";
 import Header from "./Header";
 import {useState} from "react";
+import Footer from "./Footer";
 
 type MainProps = {
     children: Array<JSX.Element> | JSX.Element;
@@ -26,6 +27,8 @@ function MainComponent(props: MainProps) {
             <article className={"grow " + (blur ? "blur-md" : "blur-none")}>
                 {props.children}
             </article>
+
+            <Footer />
         </div>
     );
 }
