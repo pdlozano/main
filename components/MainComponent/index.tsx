@@ -16,10 +16,6 @@ function MainComponent(props: MainProps) {
                     content="width=device-width, initial-scale=1.0"
                 />
                 <meta charSet="UTF-8"/>
-                <link
-                    href="https://fonts.googleapis.com/css2?family=Open+Sans&family=Roboto+Mono&display=swap"
-                    rel="stylesheet"
-                />
             </Head>
 
             <Header/>

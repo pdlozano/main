@@ -1,13 +1,13 @@
 import {useState} from "react";
 import {MoreVertical, X} from "react-feather";
-import {Link} from ".";
+import Link from "next/link";
 
 function Header() {
     const [item, setItem] = useState<boolean>(true);
 
     return (
         <header className="flex items-center justify-between mx-5 bg-gray px-5 py-1 rounded mt-4 drop-shadow">
-            <p className="text-xl font-bold font-body"><a href="/">David Lozano</a></p>
+            <p className="text-xl font-bold font-body"><Link href="/">David Lozano</Link></p>
 
             <nav>
                 <button aria-label="Open Menu" onClick={(event) => {
@@ -27,7 +27,6 @@ function Header() {
                         </button>
 
                         <ul className="w-full">
-                            <Link href="/instagram">Instagram</Link>
                         </ul>
                     </div>
                 )}
