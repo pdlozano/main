@@ -52,4 +52,8 @@
         @apply hover:bg-main-600 hover:text-black;
         @apply focus:outline-none focus:bg-main-600 focus:text-black;
     }
+
+    .footer-links > p {
+        @apply px-3;
+    }
 }
