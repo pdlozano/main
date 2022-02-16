@@ -1,41 +1,24 @@
 import {useState} from "react";
-import {MoreVertical, X} from "react-feather";
+import {MoreHorizontal} from "react-feather";
 import Link from "next/link";
 
-type HeaderData = {
-    setFn: (blur: boolean) => void;
-}
-
-function Header(props: HeaderData) {
+function Header() {
     const [item, setItem] = useState<boolean>(true);
 
     return (
-        <header className="header-footer items-center justify-between">
-            <p className="text-xl font-bold font-body"><Link href="/">David Lozano</Link></p>
+        <header className="header-footer flex-col md:flex-row items-center">
+            <p className="text-xl font-bold font-body w-48 text-center md:text-left"><Link href="/">David Lozano</Link></p>
 
-            <nav>
-                <button aria-label="Open Menu" onClick={(event) => {
+            <nav className="flex flex-col md:flex-row w-full items-center justify-end">
+                <button onClick={(event) => {
                     event.preventDefault();
                     setItem(!item);
-                    props.setFn(true);
-                }}>
-                    <MoreVertical/>
-                </button>
+                }} className="my-3 md:hidden"><MoreHorizontal/></button>
 
-                {item ? "" : (
-                    <div className="flex flex-col items-end py-5 px-10 fixed h-screen bg-gray inset-y-0 right-0 w-full md:w-4/12 -mx-5 -mt-4">
-                        <button aria-label="Close Menu" onClick={(event) => {
-                            event.preventDefault();
-                            setItem(!item);
-                            props.setFn(false);
-                        }}>
-                            <X/>
-                        </button>
-
-                        <ul className="w-full">
-                        </ul>
-                    </div>
-                )}
+                <ul className={"md:flex flex-col md:flex-row text-center " + (item ? "hidden" : "")}>
+                    <li className="header-item">Blog</li>
+                    <li className="header-item">Portfolio</li>
+                </ul>
             </nav>
         </header>
     );
