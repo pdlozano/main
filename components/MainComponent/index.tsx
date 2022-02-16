@@ -1,6 +1,5 @@
 import Head from "next/head";
 import Header from "./Header";
-import {useState} from "react";
 import Footer from "./Footer";
 
 type MainProps = {
@@ -9,8 +8,6 @@ type MainProps = {
 };
 
 function MainComponent(props: MainProps) {
-    const [blur, setBlur] = useState(false);
-
     return (
         <div className="flex flex-col min-h-screen">
             <Head>
@@ -22,9 +19,9 @@ function MainComponent(props: MainProps) {
                 <meta charSet="UTF-8"/>
             </Head>
 
-            <Header setFn={setBlur}/>
+            <Header />
 
-            <article className={"grow " + (blur ? "blur-md" : "blur-none")}>
+            <article className="grow">
                 {props.children}
             </article>
 
