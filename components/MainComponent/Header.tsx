@@ -16,8 +16,8 @@ function Header() {
                 }} className="my-3 md:hidden"><MoreHorizontal/></button>
 
                 <ul className={"md:flex flex-col md:flex-row text-center " + (item ? "hidden" : "")}>
-                    <li className="header-item">Blog</li>
-                    <li className="header-item">Portfolio</li>
+                    <li className="header-item"><Link href="/blog">Blog</Link></li>
+                    <li className="header-item"><Link href="/portfolio">Portfolio</Link></li>
                 </ul>
             </nav>
         </header>

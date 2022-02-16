@@ -25,6 +25,8 @@
 
     a {
         @apply text-main-600;
+        @apply hover:underline;
+        @apply focus:outline-none focus:bg-main-600 focus:text-black;
     }
 
     img {

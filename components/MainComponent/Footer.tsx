@@ -1,4 +1,5 @@
 import Icons from "../Icons";
+import Link from "next/link";
 
 function Footer() {
     return (
@@ -12,9 +13,7 @@ function Footer() {
                 <Icons/>
 
                 <nav className="footer-links">
-                    <p>Sitemap</p>
-                    <p>Blog RSS Feed</p>
-                    <p>Content Policy</p>
+                    <p><Link href="/sitemap.xml">Sitemap</Link></p>
                 </nav>
             </div>
         </footer>
