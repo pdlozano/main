@@ -3,7 +3,7 @@ import Me from "../../public/me.jpg";
 
 function Body() {
     return (
-        <div className="grid gap-5 md:grid-cols-2 w-11/12 md:w-10/12 mx-auto my-5">
+        <div className="grid gap-5 md:grid-cols-2 my-5">
             <div>
                 <Image src={Me} alt="A picture of me." placeholder="blur" objectFit="cover"/>
             </div>

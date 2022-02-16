@@ -21,7 +21,7 @@ function MainComponent(props: MainProps) {
 
             <Header />
 
-            <article className="grow">
+            <article className="grow w-11/12 md:w-10/12 mx-auto">
                 {props.children}
             </article>
 
