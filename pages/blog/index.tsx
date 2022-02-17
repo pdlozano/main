@@ -2,12 +2,10 @@ import MainComponent from "../../components/MainComponent";
 import {read} from "gray-matter";
 import fs from "fs/promises";
 import path from "path";
+import {BlogItemData} from "../../components/Blog/BlogList";
+import dynamic from "next/dynamic";
 
-type BlogItemData = {
-    url: string;
-    title: string;
-    date: Date;
-}
+const BlogList = dynamic(() => import("../../components/Blog/BlogList"));
 
 type BlogData = {
     data: BlogItemData[];
@@ -17,6 +15,24 @@ function Blog(props: BlogData) {
     return (
         <MainComponent title="Blog">
             <h1>Blog</h1>
+            <p>I publish stuff usually related to programming and technology
+                here to showcase my love for the field.</p>
+
+            <BlogList data={props.data} />
+            {/*{props.data.map((item) => {*/}
+            {/*    const { title, url, date } = item;*/}
+            {/*    const uri = "/blog/" + url;*/}
+
+            {/*    // <Link key={title} href={uri}>*/}
+            {/*    // </Link>*/}
+            {/*    */}
+            {/*    return (*/}
+            {/*            <div key={title}>*/}
+            {/*                <h2>{title}</h2>*/}
+            {/*                <p>Published on {date}</p>*/}
+            {/*            </div>*/}
+            {/*    );*/}
+            {/*})}*/}
         </MainComponent>
     )
 }
@@ -32,7 +48,7 @@ async function getStaticProps(): Promise<{ props: BlogData }> {
         const {data} = read(currentDir);
         return {
             title: data.title,
-            date: new Date(data.date),
+            date: data.date,
             url: groups?.url as string,
         };
     });
