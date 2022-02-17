@@ -32,6 +32,37 @@
     img {
         @apply rounded-md drop-shadow;
     }
+
+    strong {
+        @apply font-bold;
+    }
+
+    em {
+        @apply italic;
+    }
+
+    ul {
+        @apply list-disc list-inside;
+    }
+
+    ol {
+        @apply list-decimal list-inside;
+    }
+
+    ul ul,
+    ul ol,
+    ol ol,
+    ol ul {
+        @apply ml-10;
+    }
+
+    code {
+        @apply bg-gray rounded text-yellow-600;
+    }
+
+    pre > div {
+        @apply rounded bg-gray;
+    }
 }
 
 @layer components {
@@ -40,7 +71,7 @@
     }
 
     .header-item {
-        @apply my-4 md:mx-4;
+        @apply my-4 md:mx-4 list-none;
     }
 
     .front-page-social-icons {
