@@ -12,12 +12,12 @@ type ItemProps = {
 function PortfolioItem(props: ItemProps) {
     return (
         <Link href={props.link}>
-            <a className="link-box grid md:grid-cols-5 gap-3">
-                <div className="md:col-span-2">
+            <a className="link-box grid lg:grid-cols-5 gap-3">
+                <div className="lg:col-span-2">
                     <Image src={props.image} alt={`Image of ${props.title}`} />
                 </div>
 
-                <div className="md:col-span-3">
+                <div className="lg:col-span-3">
                     <h2>{props.title}</h2>
 
                     <Link href={props.website}>

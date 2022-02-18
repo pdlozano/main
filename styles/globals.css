@@ -87,7 +87,7 @@
     }
 
     .link-box {
-        @apply bg-gray rounded px-5 py-4 block border-2 border-gray;
+        @apply bg-gray rounded px-5 py-4 block border-2 border-gray my-2;
         @apply hover:border-main-600 hover:no-underline;
         @apply focus:border-main-300;
     }
