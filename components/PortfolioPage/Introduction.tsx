@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 function Introduction() {
     return (
         <div>
@@ -13,7 +15,11 @@ function Introduction() {
                 I have a firm belief that growth should be constant so I am
                 constantly improving and learning new skills as well as time
                 goes on. Here are some of the projects I have made over the
-                years.
+                years. For a complete list,{" "}
+                <Link href="https://github.com/pdlozano">
+                    go to my GitHub account
+                </Link>
+                .
             </p>
         </div>
     );
