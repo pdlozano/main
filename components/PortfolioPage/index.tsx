@@ -1,5 +1,7 @@
 import Introduction from "./Introduction";
-import Items from "./Items";
+import dynamic from "next/dynamic";
+
+const Items = dynamic(() => import("./Items"));
 
 function PortfolioPage() {
     return (
