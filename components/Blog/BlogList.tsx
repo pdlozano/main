@@ -21,4 +21,4 @@ function BlogList(props: { data: BlogItemData[] }) {
 }
 
 export default BlogList;
-export { BlogItemData };
+export type { BlogItemData };

@@ -21,20 +21,6 @@ function Blog(props: BlogData) {
             </p>
 
             <BlogList data={props.data} />
-            {/*{props.data.map((item) => {*/}
-            {/*    const { title, url, date } = item;*/}
-            {/*    const uri = "/blog/" + url;*/}
-
-            {/*    // <Link key={title} href={uri}>*/}
-            {/*    // </Link>*/}
-            {/*    */}
-            {/*    return (*/}
-            {/*            <div key={title}>*/}
-            {/*                <h2>{title}</h2>*/}
-            {/*                <p>Published on {date}</p>*/}
-            {/*            </div>*/}
-            {/*    );*/}
-            {/*})}*/}
         </MainComponent>
     );
 }
