@@ -1,4 +1,4 @@
-import { Instagram, Mail, Phone, GitHub } from "react-feather";
+import { Mail, Phone, GitHub } from "react-feather";
 
 type IconData = {
     href: string;
@@ -27,11 +27,6 @@ function Icons() {
                 icon={<Mail />}
             />
             <Icon href="tel:+639276880048" label="Phone" icon={<Phone />} />
-            <Icon
-                href="https://instagram.com/pdlozano"
-                label="Instagram"
-                icon={<Instagram />}
-            />
             <Icon
                 href="https://github.com/pdlozano"
                 label="GitHub"
