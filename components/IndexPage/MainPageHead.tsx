@@ -1,4 +1,5 @@
 import Icons from "../Icons";
+import Link from "next/link";
 
 function ForHire({ hire }: { hire: boolean }) {
     const classNameList = hire ? "bg-green" : "bg-red-600";
@@ -19,7 +20,9 @@ function MainPageHead() {
                 <p>I am a web developer and electrical engineering student.</p>
 
                 <nav className="flex flex-col md:flex-row md:items-center">
-                    <button className="cta mr-2">Read my Blog</button>
+                    <Link href="/blog">
+                        <a className="cta mr-2 text-center">Read my Blog</a>
+                    </Link>
 
                     <div className="mt-5 mx-auto w-100 md:m-0">
                         <Icons />

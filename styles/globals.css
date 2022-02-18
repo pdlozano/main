@@ -82,7 +82,7 @@
 
     .cta {
         @apply rounded px-3 py-2 border-2 border-main-600 text-main-600 font-bold;
-        @apply hover:bg-main-600 hover:text-black;
+        @apply hover:bg-main-600 hover:text-black hover:no-underline;
         @apply focus:outline-none focus:bg-main-600 focus:text-black;
     }
 
