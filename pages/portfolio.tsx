@@ -6,7 +6,7 @@ function Portfolio() {
         <MainComponent title="Portfolio">
             <PortfolioPage />
         </MainComponent>
-    )
+    );
 }
 
 export default Portfolio;

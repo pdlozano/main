@@ -4,7 +4,7 @@ type BlogItemData = {
     url: string;
     title: string;
     date: string;
-}
+};
 
 function BlogList(props: { data: BlogItemData[] }) {
     return (
@@ -17,8 +17,8 @@ function BlogList(props: { data: BlogItemData[] }) {
                 </li>
             ))}
         </ul>
-    )
+    );
 }
 
 export default BlogList;
-export {BlogItemData};
+export { BlogItemData };

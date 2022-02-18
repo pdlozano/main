@@ -8,7 +8,7 @@ module.exports = {
         colors: {
             main: {
                 300: "#96d6ff",
-                600: "#0197f6"
+                600: "#0197f6",
             },
             gray: "#111111",
             white: "#f4f4f4",
@@ -26,11 +26,11 @@ module.exports = {
                 600: "#4da1a9",
             },
             green: "#018e42",
-            pink: "#f00699"
+            pink: "#f00699",
         },
         fontFamily: {
-            header: ['"Open Sans"', 'sans-serif'],
-            body: ['"Roboto Mono"', 'monospace'],
+            header: ['"Open Sans"', "sans-serif"],
+            body: ['"Roboto Mono"', "monospace"],
         },
         extend: {},
     },

@@ -6,7 +6,7 @@ function _404() {
             <h1>Error 404 - Page Not Found</h1>
             <p>This page does not exist. Perhaps you followed a wrong link?</p>
         </MainComponent>
-    )
+    );
 }
 
 export default _404;

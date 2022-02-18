@@ -4,7 +4,7 @@ import Items from "./Items";
 function PortfolioPage() {
     return (
         <>
-            <Introduction/>
+            <Introduction />
             <Items />
         </>
     );

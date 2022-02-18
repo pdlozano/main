@@ -16,7 +16,7 @@ function MainComponent(props: MainProps) {
                     name="viewport"
                     content="width=device-width, initial-scale=1.0"
                 />
-                <meta charSet="UTF-8"/>
+                <meta charSet="UTF-8" />
             </Head>
 
             <Header />
@@ -31,4 +31,4 @@ function MainComponent(props: MainProps) {
 }
 
 export default MainComponent;
-export type {MainProps};
+export type { MainProps };

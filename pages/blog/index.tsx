@@ -1,8 +1,8 @@
 import MainComponent from "../../components/MainComponent";
-import {read} from "gray-matter";
+import { read } from "gray-matter";
 import fs from "fs/promises";
 import path from "path";
-import {BlogItemData} from "../../components/Blog/BlogList";
+import { BlogItemData } from "../../components/Blog/BlogList";
 import dynamic from "next/dynamic";
 
 const BlogList = dynamic(() => import("../../components/Blog/BlogList"));
@@ -15,8 +15,10 @@ function Blog(props: BlogData) {
     return (
         <MainComponent title="Blog">
             <h1>Blog</h1>
-            <p>I publish stuff usually related to programming and technology
-                here to showcase my love for the field.</p>
+            <p>
+                I publish stuff usually related to programming and technology
+                here to showcase my love for the field.
+            </p>
 
             <BlogList data={props.data} />
             {/*{props.data.map((item) => {*/}
@@ -34,18 +36,18 @@ function Blog(props: BlogData) {
             {/*    );*/}
             {/*})}*/}
         </MainComponent>
-    )
+    );
 }
 
 async function getStaticProps(): Promise<{ props: BlogData }> {
     const current = path.join(process.cwd(), "blog");
     const dir = await fs.readdir(current);
     const links = dir.map(async (dir): Promise<BlogItemData> => {
-        const reg = /(?<url>\d+)\.md/g
-        const {groups} = reg.exec(dir) || {groups: null};
+        const reg = /(?<url>\d+)\.md/g;
+        const { groups } = reg.exec(dir) || { groups: null };
 
         const currentDir = path.join(current, dir);
-        const {data} = read(currentDir);
+        const { data } = read(currentDir);
         return {
             title: data.title,
             date: data.date,
@@ -61,4 +63,4 @@ async function getStaticProps(): Promise<{ props: BlogData }> {
 }
 
 export default Blog;
-export {getStaticProps};
+export { getStaticProps };

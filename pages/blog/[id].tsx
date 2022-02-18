@@ -1,8 +1,8 @@
 import MainComponent from "../../components/MainComponent";
 import fs from "fs/promises";
 import path from "path";
-import {GetStaticProps} from "next";
-import {read} from "gray-matter";
+import { GetStaticProps } from "next";
+import { read } from "gray-matter";
 import BlogPost from "../../components/Blog/BlogPost";
 import type { PostData } from "../../components/Blog/BlogPost";
 
@@ -11,7 +11,7 @@ function Post(props: PostData) {
         <MainComponent title={props.title}>
             <BlogPost {...props} />
         </MainComponent>
-    )
+    );
 }
 
 const getStaticProps: GetStaticProps = async (context) => {
@@ -27,14 +27,14 @@ const getStaticProps: GetStaticProps = async (context) => {
             content: dir.content,
         },
     };
-}
+};
 
 async function getStaticPaths() {
     const current = path.join(process.cwd(), "blog");
     const dir = await fs.readdir(current);
     const links = dir.map(async (dir) => {
-        const reg = /(?<url>\d+)\.md/g
-        const {groups} = reg.exec(dir) || {groups: null};
+        const reg = /(?<url>\d+)\.md/g;
+        const { groups } = reg.exec(dir) || { groups: null };
         return {
             params: {
                 id: groups?.url as string,
@@ -49,4 +49,4 @@ async function getStaticPaths() {
 }
 
 export default Post;
-export {getStaticProps, getStaticPaths};
+export { getStaticProps, getStaticPaths };

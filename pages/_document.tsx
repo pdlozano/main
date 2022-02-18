@@ -9,7 +9,7 @@ import Document, {
 class MyDocument extends Document {
     static async getInitialProps(ctx: DocumentContext) {
         const initialProps = await Document.getInitialProps(ctx);
-        return {...initialProps};
+        return { ...initialProps };
     }
 
     render() {
@@ -23,8 +23,8 @@ class MyDocument extends Document {
                 </Head>
 
                 <body>
-                    <Main/>
-                    <NextScript/>
+                    <Main />
+                    <NextScript />
                 </body>
             </Html>
         );
