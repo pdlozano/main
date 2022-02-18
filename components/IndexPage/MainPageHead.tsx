@@ -1,8 +1,13 @@
 import Icons from "../Icons";
 
 function ForHire({ hire }: { hire: boolean }) {
-    return null;
-    // return hire ? <p className="text-green">For Hire</p> : <p>Not For Hire</p>;
+    const classNameList = hire ? "bg-green" : "bg-red-600";
+
+    return (
+        <p className={"inline-block rounded px-2 italic " + classNameList}>
+            {hire ? "" : "Not"} For Hire
+        </p>
+    );
 }
 
 function MainPageHead() {
