@@ -7,7 +7,6 @@ type ItemProps = {
     link: string;
     children: string;
     image: StaticImageData;
-    tech: ("SQL" | "JavaScript" | "Python")[];
 };
 
 function Item(props: ItemProps) {
@@ -34,7 +33,6 @@ function Items() {
                 title="Pokemon Team Stats and Coverage App"
                 link="https://github.com/pdlozano/pokemon"
                 image={Pokemon}
-                tech={["JavaScript"]}
             >
                 I play Pokemon in my free time and one of the things I have a
                 hard time doing is making sure my team has proper coverage and
