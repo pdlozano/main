@@ -20,7 +20,7 @@ function MainPageHead() {
                 <p>I am a web developer and electrical engineering student.</p>
 
                 <nav className="flex flex-col md:flex-row md:items-center">
-                    <Link href="/blog">
+                    <Link href="https://davidlozano.substack.com/">
                         <a className="cta mr-2 text-center">Read my Blog</a>
                     </Link>
 
