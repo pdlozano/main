@@ -29,11 +29,6 @@ function Header() {
                     }
                 >
                     <li className="header-item">
-                        <Link href="https://davidlozano.substack.com/">
-                            Blog
-                        </Link>
-                    </li>
-                    <li className="header-item">
                         <Link href="/portfolio">Portfolio</Link>
                     </li>
                 </ul>

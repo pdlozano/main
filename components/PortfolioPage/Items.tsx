@@ -21,7 +21,7 @@ function Items() {
             </PortfolioItem>
 
             <PortfolioItem
-                title="Advocacy Page for Allowing Gays to Donate"
+                title="Advocacy Page for Allowing Gays to Donate Blood"
                 link="https://github.com/pdlozano/advocacy-school"
                 website="https://gay-blood.davidlozano.me"
                 image={Advocacy}
