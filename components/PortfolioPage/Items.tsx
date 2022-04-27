@@ -4,10 +4,23 @@ import Advocacy from "../../public/portfolio/gay-blood.jpg";
 import Omega from "../../public/portfolio/omega.jpg";
 import Sketch from "../../public/portfolio/sketch.jpg";
 import Trivia from "../../public/portfolio/trivia.jpg";
+import CurveFitting from "../../public/portfolio/curvefitting.png";
 
 function Items() {
     return (
         <div>
+            <PortfolioItem
+                title="Curve Fitting"
+                link="https://github.com/pdlozano/curve_fitting"
+                website="https://colab.research.google.com/drive/1r68-THMajh2NTwqg7gnM3FTyAc1ZuqYF?usp=sharing"
+                image={CurveFitting}
+            >
+                This is a notebook that demonstrates two curve fitting
+                algorithms - specifically, polynomial regression and Newton
+                interpolation. It is a fun project for practicing plotting with
+                Plotly as well as SymPy&apos;s capabilities.
+            </PortfolioItem>
+
             <PortfolioItem
                 title="Pokemon Team Stats and Coverage App"
                 link="https://github.com/pdlozano/pokemon"
