@@ -5,10 +5,23 @@ import Omega from "../../public/portfolio/omega.jpg";
 import Sketch from "../../public/portfolio/sketch.jpg";
 import Trivia from "../../public/portfolio/trivia.jpg";
 import CurveFitting from "../../public/portfolio/curvefitting.png";
+import AirQuality from "../../public/portfolio/air-quality.jpg";
 
 function Items() {
     return (
         <div>
+            <PortfolioItem
+                title="Air Quality"
+                link="https://github.com/pdlozano/air-quality"
+                website="https://colab.research.google.com/drive/1nRLPXLP_i0ZPttsqRZJCJY_7o4RdY1RC?usp=sharing"
+                image={AirQuality}
+            >
+                This notebook graphs and analyzes the air quality data from the
+                UCI machine learning repository. It aims to look at different
+                compounds and see their patterns throughout the year and day. It
+                also serves as a fun practice for Matplotlib and Pandas.
+            </PortfolioItem>
+
             <PortfolioItem
                 title="Curve Fitting"
                 link="https://github.com/pdlozano/curve_fitting"
