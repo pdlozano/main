@@ -3,7 +3,7 @@ import { useState } from "react";
 type TriviaItemProps = {
     title: string;
     truth: boolean;
-    children?: JSX.Element[];
+    children?: JSX.Element | JSX.Element[];
 }
 
 function TriviaItem(props: TriviaItemProps) {
@@ -40,8 +40,8 @@ function Trivia() {
                         movements on anything milk.
                     </p>
                     <p>
-                        I can still eat cheese don't worry. But animal milk is
-                        definitely a no-no. Instead of those, I drink soy or
+                        I can still eat cheese don&apos;t worry. But animal milk
+                        is definitely a no-no. Instead of those, I drink soy or
                         almond milk.
                     </p>
                 </TriviaItem>
