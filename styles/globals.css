@@ -3,12 +3,25 @@
 @tailwind utilities;
 
 @layer base {
+    ::selection {
+        background: theme("colors.yellow.600");
+        color: theme("colors.gray");
+    }
+
     body {
         @apply bg-black text-white text-lg font-body;
+        overflow-x: hidden;
     }
 
     h1, h2, h3 {
         @apply font-header font-bold;
+        /*background: linear-gradient(*/
+        /*        to bottom right,*/
+        /*        theme("colors.main.600"),*/
+        /*        theme("colors.pink")*/
+        /*);*/
+        /*-webkit-background-clip: text;*/
+        /*-webkit-text-fill-color: transparent;*/
     }
 
     h1 {
@@ -66,12 +79,57 @@
 }
 
 @layer components {
+    .site-header {
+        backdrop-filter: saturate(180%) blur(5px);
+        border-bottom: 1px solid theme("colors.black");
+    }
+
     .header-footer {
-        @apply mx-5 bg-gray px-5 py-1 rounded my-4 flex drop-shadow;
+        @apply bg-gray px-5 py-1 rounded flex drop-shadow;
+    }
+
+    .hamburger {
+        @apply fixed flex-col inset-0 w-screen h-screen bg-gray px-10 py-10;
+        @apply md:relative md:flex-row md:w-auto md:h-auto md:p-0;
+
+        transition: 200ms transform;
+    }
+
+    .trivia-item {
+        @apply px-5 py-2 my-3 bg-gray rounded-md border-2 border-gray;
+        @apply hover:border-yellow-600;
+    }
+
+    .rotating-gradient {
+        background: linear-gradient(
+                45deg,
+                #0197f6,
+                #3396f8,
+                #6a92fb,
+                #a28bf8,
+                #d97fe8,
+                #ff72c9,
+                #ff6fa0,
+                #ff7c74,
+                #ff924d,
+                #ffa72c,
+                #ffb512,
+                #fcba04
+        );
+        background-size: 400% 400%;
+        animation: rotate-gradient 8000ms ease infinite;
+    }
+
+    .hamburger-shown {
+        @apply translate-y-0;
+    }
+
+    .hamburger-hidden {
+        @apply -translate-y-full md:translate-y-0;
     }
 
     .header-item {
-        @apply my-4 md:mx-4 list-none;
+        @apply my-4 md:mx-4 md:my-0 list-none;
     }
 
     .front-page-social-icons {
@@ -81,9 +139,28 @@
     }
 
     .cta {
-        @apply rounded px-3 py-2 border-2 border-main-600 text-main-600 font-bold;
-        @apply hover:bg-main-600 hover:text-black hover:no-underline;
-        @apply focus:outline-none focus:bg-main-600 focus:text-black;
+        @apply rounded px-3 py-2 border-2 border-yellow-600 text-yellow-600 font-bold;
+        @apply hover:bg-yellow-600 hover:text-white hover:no-underline;
+        @apply focus:outline-none focus:bg-yellow-600 focus:text-black;
+    }
+
+    .portfolio-tag {
+        @apply text-xs my-1;
+    }
+
+    .active-tag,
+    .inactive-tag {
+        @apply border-2 rounded px-2 m-1 border-main-600 outline-none;
+        @apply hover:bg-yellow-600 hover:text-white hover:border-yellow-600;
+        @apply focus:outline-none focus:border-yellow-600;
+    }
+
+    .active-tag {
+        @apply bg-main-600 text-white;
+    }
+
+    .inactive-tag {
+        @apply bg-gray text-main-600;
     }
 
     .link-box {
@@ -92,7 +169,52 @@
         @apply focus:border-main-300;
     }
 
+    .link-box:focus .cta {
+        @apply bg-yellow-600 text-white;
+    }
+
     .footer-links > p {
         @apply px-3;
+    }
+
+    .intro {
+        @apply py-3 my-4 relative overflow-hidden;
+    }
+
+    .intro::before {
+        @apply absolute bottom-0 left-1/4 -z-10;
+
+        content: "";
+        background-color: #111111;
+        transform: rotate(45deg);
+        transform-origin: bottom left;
+        width: 100vw;
+        height: 100vh;
+    }
+
+    .zap::before {
+        mask-image: url("/zap.svg");
+    }
+
+    .bar-chart::before {
+        mask-image: url("/bar-chart.svg");
+    }
+
+    .code::before {
+        mask-image: url("/code.svg");
+    }
+}
+
+@keyframes rotate-gradient {
+    0% {
+        background-position: 0 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0 50%;
     }
 }

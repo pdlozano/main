@@ -3,7 +3,7 @@ import Link from "next/link";
 
 function Footer() {
     return (
-        <footer className="header-footer grid gap-10 md:grid-cols-3">
+        <footer className="header-footer grid mt-4 gap-10 md:grid-cols-3 md:mx-5 md:my-4">
             <div className="md:col-span-2">
                 <p className="text-md">
                     Call me David. I live in Cebu, PH and am currently a college

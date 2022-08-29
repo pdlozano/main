@@ -1,12 +1,15 @@
 import Link from "next/link";
 import Image from "next/image";
 
+type Tag = "Data Science" | "Web Development" | "Electrical Engineering";
+
 type ItemProps = {
     title: string;
     link: string;
     children: string;
     website: string;
     image: StaticImageData;
+    tag: Tag;
 };
 
 function PortfolioItem(props: ItemProps) {
@@ -19,6 +22,7 @@ function PortfolioItem(props: ItemProps) {
 
                 <div className="lg:col-span-3">
                     <h2>{props.title}</h2>
+                    <p className="portfolio-tag"><strong>TAG</strong>: {props.tag}</p>
 
                     <Link href={props.website}>
                         <a className="cta bg-gray inline-block mt-3 w-full text-center md:w-auto">
@@ -34,3 +38,4 @@ function PortfolioItem(props: ItemProps) {
 }
 
 export default PortfolioItem;
+export type { ItemProps, Tag };
