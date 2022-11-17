@@ -22,8 +22,7 @@ const Home: NextPage = () => {
                 <div className="col-span-3">
                     <p>
                         My name is David. I usually spend most of my weekdays
-                        studying and coding. Right now, I am progressing my body
-                        to where I want it to be.
+                        studying and coding.
                     </p>
 
                     <Trivia />
