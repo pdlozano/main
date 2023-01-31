@@ -1,3 +1,4 @@
+@import './prism.css';
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -67,14 +68,6 @@
     ol ol,
     ol ul {
         @apply ml-10;
-    }
-
-    code {
-        @apply bg-gray rounded text-yellow-600;
-    }
-
-    pre > div {
-        @apply rounded bg-gray;
     }
 }
 
@@ -202,6 +195,25 @@
 
     .code::before {
         mask-image: url("/code.svg");
+    }
+
+    .post-article blockquote {
+        @apply pl-4 border-l-4 border-main-600;
+    }
+
+    .post-article strong {
+        @apply text-red-600;
+    }
+
+    .post-article a {
+        @apply border-b-2;
+        @apply hover:no-underline hover:border-b-4;
+    }
+
+    .post-article h1,
+    .post-article h2,
+    .post-article h3 {
+        @apply mt-5;
     }
 }
 

@@ -15,18 +15,13 @@ function Body() {
 
             <div>
                 <h2>About Me</h2>
-                <p>
-                    I am a proud Filipino and studying Data Science in my free time
-                    when I&apos;m not studying. I have been coding for the web
-                    since 2017 when I first touched HTML and JS. Today, I code
-                    mostly JS and Python.
-                </p>
+                <p>I am a proud Filipino and studying Data Science in my free time. I have been coding for the web since
+                    2017 when I first touched HTML and JS. Today, I code mostly in Python and do a lot of data analysis
+                    with Excel. Not everyone can understand what the data is telling you so I make sure that the models
+                    and dashboards I build are understandable and human.</p>
 
-                <p>
-                    I am currently busy with academic work but if you want to
-                    collaborate on a project, feel free to message me through
-                    my email.
-                </p>
+                <p>If you want to collaborate on a project, feel free to message me through my email
+                    (hello@davidlozano.me).</p>
             </div>
         </div>
     );

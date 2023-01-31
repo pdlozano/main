@@ -3,7 +3,7 @@ import type { Tag } from "./PortfolioItem";
 import data from "./portfolio-items";
 import { useState } from "react";
 
-const allTags: Tag[] = ["Data Science", "Web Development", "Electrical Engineering"];
+const allTags: Tag[] = ["Data Science", "Web Development"];
 
 function Items() {
     const [activeTags, setActiveTags] = useState<Tag[]>(allTags);

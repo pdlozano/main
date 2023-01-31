@@ -21,8 +21,12 @@ const Home: NextPage = () => {
 
                 <div className="col-span-3">
                     <p>
-                        My name is David. I usually spend most of my weekdays
-                        studying and coding.
+                        My name is David. I don&apos;t know how it started, but a few years after I started college, I
+                        started to have a passion on the issue of financial literacy. And not just financial literacy
+                        but financial accessibility as well. I genuinely believe that the financial system should not be
+                        scary to anyone and that everyone should have a *choice* to be able to participate in it. It is
+                        my belief that with better data and models, we can make financial institutions take lesser risks
+                        and have better products for everyone.
                     </p>
 
                     <Trivia />
@@ -32,37 +36,27 @@ const Home: NextPage = () => {
             <div>
                 <h2>Some of the things I do</h2>
 
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                    <div className="intro zap">
-                        <h3>I am working on an Electrical Engineering degree.</h3>
-
-                        <p>
-                            Currently, I am studying Electrical Engineering and
-                            working both for a degree and a license.
-                        </p>
-                    </div>
-
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div className="intro code">
-                        <h3>I am a web developer in my free time.</h3>
+                        <h3>I am learning everything data related.</h3>
 
                         <p>
-                            If I am not working on my studies or my hobbies, you
-                            will likely see me coding a website.
-                        </p>
-
-                        <p>
-                            Despite being a self taught web developer, I have
-                            been building sites since 2017 and consistently
-                            honing my skills on the field.
+                            Data can be hard to interpret by decision makers who know nothing about what a normal
+                            distribution or Bayes factor is. I want to be the translator between data and these people
+                            so that they make better decisions. Whether it is creating models that recommend the best
+                            product, or a dashboard to understand key metrics of a business, I like to learn more about
+                            statistics and data to help make the translation easier to understand.
                         </p>
                     </div>
 
                     <div className="intro bar-chart">
-                        <h3>I am learning Artificial Intelligence.</h3>
+                        <h3>I play games in my free time.</h3>
 
                         <p>
-                            When there is still time left in the day for some
-                            more tasks, I learn Artificial Intelligence.
+                            These include competitive Pokemon (VGC mostly), Minecraft, and Stardew Valley. Occasionally
+                            Civilization and Cities: Skylines. If you want me to try a game, please let me know. I
+                            prefer games that don&apos;t have huge hardware requirements and have a high replayability
+                            factor.
                         </p>
                     </div>
                 </div>

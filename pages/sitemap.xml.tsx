@@ -9,6 +9,7 @@ function generateSiteMap(posts: string[]) {
         `<?xml version="1.0" encoding="UTF-8"?>` +
         `<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">` +
         `<url><loc>${BASE_URL}</loc></url>` +
+        `<url><loc>${BASE_URL}/about</loc></url>` +
         `<url><loc>${BASE_URL}/blog</loc></url>` +
         `<url><loc>${BASE_URL}/portfolio</loc></url>` +
         posts

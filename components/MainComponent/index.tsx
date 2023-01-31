@@ -5,6 +5,7 @@ import Footer from "./Footer";
 type MainProps = {
     children: Array<JSX.Element> | JSX.Element;
     title: string;
+    description?: string;
 };
 
 function MainComponent(props: MainProps) {
@@ -17,6 +18,7 @@ function MainComponent(props: MainProps) {
                     content="width=device-width, initial-scale=1.0"
                 />
                 <meta charSet="UTF-8" />
+                <meta name="description" content={props.description ? props.description : ""} />
             </Head>
 
             <Header />
