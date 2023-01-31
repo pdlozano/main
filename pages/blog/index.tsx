@@ -1,14 +1,13 @@
 import MainComponent from "../../components/MainComponent";
 import { GetStaticProps } from "next";
 import fs from "fs/promises";
-import matter from "gray-matter";
 import Fuse from "fuse.js";
 import React, { useState } from "react";
 
 type Post = {
     id: string;
     title: string;
-    date: string;
+    date: number;
     description: string;
 }
 
@@ -17,12 +16,7 @@ type PostListPageProps = {
 };
 
 function PostListPage(props: PostListPageProps) {
-    const data = props.data.map((item) => {
-        return {
-            ...item,
-            date: Date.parse(item.date)
-        };
-    }).sort((a, b) => b.date - a.date);
+    const data = props.data.sort((a, b) => b.date - a.date);
     const [search, setSearch] = useState<string>("");
     const [items, setItems] = useState<{
         id: string;
@@ -82,12 +76,12 @@ function PostListPage(props: PostListPageProps) {
 const getStaticProps: GetStaticProps = async () => {
     const fileContents = await fs.readdir("blog");
     const dataAsync = fileContents.map(async (file) => {
-        const contents = await fs.readFile(`blog/${file}`);
-        const matterResult = matter(contents);
+        const { meta } = await import(`blog/${file}`);
 
         return {
+            ...meta,
             id: file.split(".")[0],
-            ...matterResult.data
+            date: parseInt(meta.date),
         };
     });
     const data = await Promise.all(dataAsync);

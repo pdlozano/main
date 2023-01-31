@@ -1,0 +1,19 @@
+import PortfolioItem from "../components/PortfolioItem";
+import FeaturedImage from "../public/portfolio/air-quality.jpg";
+export const meta = {
+    title: "Differentiating between footwear",
+    description: "This AI project aimed to classify different types of footwear - specifically shoes, boots, and sandals. The goal is to create an AI model that is able to recognize and classify shoes based on the images of the footwear in retail.",
+    date: new Date("25 Nov 2022"),
+    tag: "Data Science",
+    url: "/portfolio/notebook/1.html",
+    image: {
+        src: FeaturedImage,
+        alt: "Air Quality",
+    },
+}
+
+This AI project aimed to classify different types of footwear - specifically shoes, boots, and sandals. The goal is to create an AI model that is able to recognize and classify shoes based on the images of the shoes. To facilitate this task, a data set of 15,000 images was used with an 80-15-5 split in training, validation, and testing sets.
+
+Both neural networks and convolutional neural networks were used to build the model. The process started with exploratory data analysis and then creating simple neural networks and gradually making it more complex through experimentation. The final model has a test set accuracy of 95.35%. The model was saved in a .pt file that can be reused by other scripts or improved upon.
+
+export default ({children}) => <PortfolioItem {...meta}>{children}</PortfolioItem>;

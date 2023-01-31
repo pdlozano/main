@@ -1,5 +1,5 @@
 import Link from "next/link";
-import Image from "next/image";
+import Image, { StaticImageData } from "next/image";
 
 type Tag = "Data Science" | "Web Development" | "Electrical Engineering";
 

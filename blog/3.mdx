@@ -1,11 +1,9 @@
----
-title: I'm graduating. Here are some tips to the freshmen
-description: Hello
-date: 28 Jan 2023
-image:
-    src: a.png
-    alt: Hello
----
+import BlogPost from "../components/BlogPost";
+export const meta = {
+    title: "I'm graduating. Here are some tips to the freshmen",
+    description: "Hello",
+    date: new Date("28 Jan 2023"),
+}
 
 1. Build your network
 2. You're an adult. You need to take responsibility from time to time
@@ -17,3 +15,5 @@ image:
 8. It's okay not to graduate on time
 9. Spend your free time in something you enjoy AND will grow your future
 10. The best investment for now is managing your lifestyle
+
+export default ({ children }) => <BlogPost {...meta}>{children}</BlogPost>;
