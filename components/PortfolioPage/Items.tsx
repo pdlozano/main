@@ -1,12 +1,26 @@
-import PortfolioItem from "./PortfolioItem";
-import type { Tag } from "./PortfolioItem";
-import data from "./portfolio-items";
-import { useState } from "react";
+import Image, { StaticImageData } from "next/image";
+import React, { useState } from "react";
+import Link from "next/link";
 
-const allTags: Tag[] = ["Data Science", "Web Development"];
+const allTags: string[] = ["Data Science", "Web Development"];
 
-function Items() {
-    const [activeTags, setActiveTags] = useState<Tag[]>(allTags);
+type PortfolioItem = {
+    id: number;
+    title: string;
+    description: string;
+    tag: string;
+    url: string;
+    image: {
+        src: StaticImageData;
+    };
+};
+
+type PageProps = {
+    data: PortfolioItem[];
+};
+
+function Items(props: PageProps) {
+    const [activeTags, setActiveTags] = useState<string[]>(allTags);
 
     return (
         <div>
@@ -30,12 +44,27 @@ function Items() {
             </div>
 
             <div>
-                {data
+                {props.data
                     .filter((item) => activeTags.includes(item.tag))
-                    .map((item) => <PortfolioItem key={item.title} {...item} />)}
+                    .map((item) => (
+                        <Link href={"/portfolio/" + item.id} key={item.id}>
+                            <a className="link-box grid lg:grid-cols-5 gap-3">
+                                <div className="lg:col-span-2">
+                                    <Image src={item.image.src} alt={`Image of ${item.title}`} />
+                                </div>
+
+                                <div className="lg:col-span-3">
+                                    <h2>{item.title}</h2>
+                                    <p className="portfolio-tag"><strong>TAG</strong>: {item.tag}</p>
+                                    <p className="text-white">{item.description}</p>
+                                </div>
+                            </a>
+                        </Link>
+                    ))}
             </div>
         </div>
     );
 }
 
 export default Items;
+export type { PortfolioItem, PageProps };

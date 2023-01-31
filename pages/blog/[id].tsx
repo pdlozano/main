@@ -2,13 +2,21 @@ import { GetStaticProps, GetStaticPaths } from "next";
 import React from "react";
 import fs from "fs/promises";
 import dynamic from "next/dynamic";
+import MainComponent from "../../components/MainComponent";
 
 type PostPageProps = {
     id: number;
 }
 
 function PostPage(props: PostPageProps) {
-    const Component = dynamic(import("../../blog/" + props.id + ".mdx"));
+    const Component = dynamic(import("../../blog/" + props.id + ".mdx"), {
+        loading: () => (
+            <MainComponent title="Loading Post...">
+                <p>Loading Post...</p>
+            </MainComponent>
+        ),
+    });
+
     return (
         <React.Fragment>
             <Component />

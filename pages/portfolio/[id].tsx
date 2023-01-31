@@ -2,13 +2,20 @@ import { GetStaticProps, GetStaticPaths } from "next";
 import React from "react";
 import fs from "fs/promises";
 import dynamic from "next/dynamic";
+import MainComponent from "../../components/MainComponent";
 
 type PortfolioPageProps = {
     id: number;
 }
 
 function PortfolioPage(props: PortfolioPageProps) {
-    const Component = dynamic(import("../../portfolio/" + props.id + ".mdx"));
+    const Component = dynamic(import("../../portfolio/" + props.id + ".mdx"), {
+        loading: () => (
+            <MainComponent title="Loading Portfolio Item...">
+                <p>Loading Portfolio Item...</p>
+            </MainComponent>
+        ),
+    });
     return (
         <React.Fragment>
             <Component />
@@ -33,7 +40,7 @@ const getStaticPaths: GetStaticPaths = async () => {
 
         return {
             params: {
-                id,
+                id
             }
         };
     });

@@ -1,15 +1,14 @@
 import Introduction from "./Introduction";
-import dynamic from "next/dynamic";
+import Items, { PortfolioItem, PageProps } from "./Items";
 
-const Items = dynamic(() => import("./Items"));
-
-function PortfolioPage() {
+function PortfolioPage(props: PageProps) {
     return (
         <>
             <Introduction />
-            <Items />
+            <Items {...props} />
         </>
     );
 }
 
 export default PortfolioPage;
+export type { PortfolioItem, PageProps };

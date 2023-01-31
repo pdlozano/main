@@ -5,9 +5,8 @@ import Sketch from "../../public/portfolio/sketch.jpg";
 import Trivia from "../../public/portfolio/trivia.jpg";
 import CurveFitting from "../../public/portfolio/curvefitting.png";
 import AirQuality from "../../public/portfolio/air-quality.jpg";
-import type { ItemProps } from "./PortfolioItem";
 
-const data: ItemProps[] = [
+const data = [
     {
         title: "Air Quality",
         link: "https://github.com/pdlozano/air-quality",
