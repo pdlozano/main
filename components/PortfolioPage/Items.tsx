@@ -12,6 +12,7 @@ type PortfolioItem = {
     url: string;
     image: {
         src: StaticImageData;
+        alt: string;
     };
 };
 
@@ -50,7 +51,7 @@ function Items(props: PageProps) {
                         <Link href={"/portfolio/" + item.id} key={item.id}>
                             <a className="link-box grid lg:grid-cols-5 gap-3">
                                 <div className="lg:col-span-2">
-                                    <Image src={item.image.src} alt={`Image of ${item.title}`} />
+                                    <Image src={item.image.src} alt={item.image.alt} />
                                 </div>
 
                                 <div className="lg:col-span-3">

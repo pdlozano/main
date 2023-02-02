@@ -1,4 +1,5 @@
-import { Mail, Phone, GitHub, Linkedin } from "react-feather";
+import { Mail, Phone, GitHub, Linkedin, Instagram } from "react-feather";
+import { Fragment } from "react";
 
 type IconData = {
     href: string;
@@ -18,7 +19,11 @@ function Icon(props: IconData) {
     );
 }
 
-function Icons() {
+type IconProps = {
+    moreIcons?: boolean;
+}
+
+function Icons(props: IconProps) {
     return (
         <div className="flex flex-wrap">
             <Icon
@@ -28,15 +33,26 @@ function Icons() {
             />
             <Icon href="tel:+639276880048" label="Phone" icon={<Phone />} />
             <Icon
-                href="https://github.com/pdlozano"
-                label="GitHub"
-                icon={<GitHub />}
-            />
-            <Icon
                 href="https://www.linkedin.com/in/pdlozano/"
                 label="LinkedIn"
                 icon={<Linkedin />}
             />
+
+            {props.moreIcons ? (
+                <Fragment>
+                    <Icon
+                        href="https://github.com/pdlozano"
+                        label="GitHub"
+                        icon={<GitHub />}
+                    />
+
+                    <Icon
+                        href="https://instagram.com/pd.lozano"
+                        label="Instagram"
+                        icon={<Instagram />}
+                    />
+                </Fragment>
+            ) : ""}
         </div>
     );
 }

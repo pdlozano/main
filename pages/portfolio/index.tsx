@@ -15,7 +15,6 @@ const getStaticProps: GetStaticProps = async () => {
     const fileContents = await fs.readdir("portfolio");
     const dataAsync = fileContents.map(async (file) => {
         const { meta } = await import(`portfolio/${file}`);
-        console.log(meta);
 
         return {
             ...meta,

@@ -12,7 +12,7 @@ function Footer() {
             </div>
 
             <div>
-                <Icons />
+                <Icons moreIcons={true} />
 
                 <nav className="footer-links">
                     <p>
