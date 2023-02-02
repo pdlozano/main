@@ -6,6 +6,7 @@ import MainComponent from "../../components/MainComponent";
 
 type PostPageProps = {
     id: number;
+    draft: boolean;
 }
 
 function PostPage(props: PostPageProps) {
@@ -36,18 +37,21 @@ const getStaticProps: GetStaticProps = async (context) => {
 
 const getStaticPaths: GetStaticPaths = async () => {
     const files = await fs.readdir("blog");
-    const paths = files.map((file) => {
+    const paths = files.map(async (file) => {
+        const { meta } = await import(`blog/${file}`);
         const id = file.split(".")[0];
 
         return {
             params: {
+                draft: meta.draft || false,
                 id,
             }
         };
     });
+    const data = await Promise.all(paths);
 
     return {
-        paths: paths,
+        paths: data.filter(({ params }) => !params.draft),
         fallback: false
     };
 };

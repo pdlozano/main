@@ -1,12 +1,18 @@
 import MainComponent from "./MainComponent";
 import Image, { StaticImageData } from "next/image";
+import { Fragment } from "react";
+
+type URL = {
+    name: string;
+    link: string;
+};
 
 type Portfolio = {
     title: string;
     content: string;
     description: string;
     tag: string;
-    url: string;
+    urls: URL[];
     children: React.Component | React.Component[];
     image: {
         src: StaticImageData;
@@ -15,19 +21,36 @@ type Portfolio = {
 };
 
 
+function UrlList({ urls }: {
+    urls: URL[],
+}) {
+    return (
+        <Fragment>
+            {urls.map((url, index) => (
+                <Fragment key={url.name}>
+                    {index == 0 ? "" : "; "}<a href={url.link}>{url.name}</a>
+                </Fragment>
+            ))}
+        </Fragment>
+    )
+}
+
+
 function PortfolioItem(item: Portfolio) {
     return (
         <MainComponent title={item.title} description={item.description}>
-            <article className="item-article">
+            <article className="post-article">
                 <header>
                     <h1>{item.title}</h1>
                     <p>
-                        <a href={item.url}>Source</a> | {item.tag}
+                        {item.tag} | <UrlList urls={item.urls} />
                     </p>
-                    <Image
-                        src={item.image.src}
-                        alt={item.image.alt}
-                    />
+                    <div className="my-3 text-center">
+                        <Image
+                            src={item.image.src}
+                            alt={item.image.alt}
+                        />
+                    </div>
                     <blockquote>{item.description}</blockquote>
                 </header>
 

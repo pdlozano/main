@@ -9,6 +9,7 @@ type Post = {
     title: string;
     date: number;
     description: string;
+    draft?: boolean;
 }
 
 type PostListPageProps = {
@@ -80,6 +81,7 @@ const getStaticProps: GetStaticProps = async () => {
 
         return {
             ...meta,
+            draft: meta.draft || false,
             id: file.split(".")[0],
             date: parseInt(meta.date),
         };
@@ -88,7 +90,7 @@ const getStaticProps: GetStaticProps = async () => {
 
     return {
         props: {
-            data: data
+            data: data.filter(({ draft }) => !draft),
         }
     };
 };

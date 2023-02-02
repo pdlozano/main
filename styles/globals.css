@@ -215,6 +215,10 @@
     .post-article h3 {
         @apply mt-5;
     }
+
+    .post-article img {
+        @apply text-center;
+    }
 }
 
 @keyframes rotate-gradient {

@@ -1,29 +1,44 @@
 import BlogPost from "../components/BlogPost";
-import PostImage from "../public/me.jpg";
 import Image from "next/image";
 export const meta = {
-    title: "No. A business won't necessarily make you rich.",
-    description: "If you hang out in financial groups, you will find that a sizeable portion wants you to go to business. I'm here to scare you.",
+    // title: "No. A business won't necessarily make you rich.",
+    title: "How to make online forms people would want to answer",
+    description: "So many people do not know how to create proper online forms that people actually dread to answer them. ",
     date: new Date("29 Jan 2023"),
+    draft: true,
 }
 
-Yes. Scare you. Because too many people think that a business is the secret `to` a lot of money. "Walang yumayaman na empleyado."
+I assume you're using Google Forms since that's basically standard here in the Philippines. If not, the tips here still apply.
 
-😆✌🏽⚡🙃
+0. Get the minimum amount of data you need to get and nothing more
+Yes it is point 0 because it is that important. I constantly see forms that take in more data than what is needed or makes my eyebrows go "what do they need this for?"
 
-And then there's this post:
+1. Avoid Text Inputs When Possible
+Text inputs mean you are going to clean the data.
 
-<Image src={PostImage} alt="It is an image" />
+2. If your form has more than five questions, let people come back to it
 
-```python
-def hello_world():
-    pass
-```
+3. Do not ask for data that the person might not know the answer to
+For example, if you're asking for the date of graduation, they might be able to tell you the year and maybe the month. But the day? Most people won't be able to answer this.
 
-$$
-y = a_0x_0^2 + a_1x_1 + a_2
-$$
+Now, the date form in Google Forms cannot filter by date so my tip is to use the description box to indicate that the exact day is not important and only the month and the year will be of use.
 
-It always rubs me the wrong way because these people make you think that a job is wrong. It's not. A 9-5 job is perfectly okay. It is okay if you don't go into business. Nothing is wrong.
+4. If a field is conditional, make it so
+This is not a paper form - you're making an online form. Why do you need to say, "If you answered YES to the previous question, how many is it?" Just make sections.
+
+NOTE: It can be daunting to have multiple sections so tell your users in advance that some of them are for conditional questions.
+
+5. There is almost always a better option than a dropdown
+
+6. If you are asking for something sketchy, tell people why you need it
+For example, if you need my phone number to sign up for an event, why? Especially if I already gave my email address, what will you use it for?
+
+If you're the organizer, this may be obvious to you but not to the users.
+
+7. Address any confusion early on and let people contact you
+
+BONUS 1: If you care about privacy, use differential privacy
+
+BONUS 2: Do not be afraid to be human
 
 export default ({ children }) => <BlogPost {...meta}>{children}</BlogPost>;
