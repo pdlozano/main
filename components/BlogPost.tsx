@@ -1,11 +1,16 @@
 import MainComponent from "./MainComponent";
 import React from "react";
+import Image, { StaticImageData } from "next/image";
 
 type Post = {
     title: string;
     children: React.Component | React.Component[];
     date: Date;
     description: string;
+    img?: {
+        src: StaticImageData;
+        alt: string;
+    }
 };
 
 
@@ -23,6 +28,15 @@ function BlogPost(post: Post) {
                 <header>
                     <h1>{post.title}</h1>
                     <p className="text-sm">Published on {post.date.getDate()} {month} {post.date.getFullYear()}</p>
+                    {post.img === undefined ? "" : (
+                        <div className="my-3 text-center">
+                            <Image
+                                src={post.img.src}
+                                alt={post.img.alt}
+                                quality={100}
+                            />
+                        </div>
+                    )}
                     <blockquote>{post.description}</blockquote>
                 </header>
 

@@ -49,6 +49,7 @@ function PortfolioItem(item: Portfolio) {
                         <Image
                             src={item.image.src}
                             alt={item.image.alt}
+                            quality={100}
                         />
                     </div>
                     <blockquote>{item.description}</blockquote>

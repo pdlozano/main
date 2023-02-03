@@ -19,14 +19,14 @@ const getStaticProps: GetStaticProps = async () => {
         return {
             ...meta,
             id: file.split(".")[0],
-            date: parseInt(meta.date),
+            date: meta.date.getTime() as number,
         };
     });
     const data = await Promise.all(dataAsync);
 
     return {
         props: {
-            data: data
+            data: data.sort((a, b) => b.date - a.date)
         }
     };
 };

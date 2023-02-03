@@ -1,0 +1,116 @@
+import PortfolioItem from "../components/PortfolioItem";
+import PostImage from "../components/PostImage";
+import FeaturedImage from "../public/portfolio/3.0.png";
+import Image1 from "../public/portfolio/3.1.png";
+import Image2 from "../public/portfolio/3.2.png";
+import Image3 from "../public/portfolio/3.3.png";
+import Image4 from "../public/portfolio/3.4.png";
+export const meta = {
+    title: "Demonstration of Curve Fitting",
+    description: "This is a notebook that demonstrates two curve fitting algorithms - specifically, polynomial regression and Newton interpolation. It is a fun project for practicing plotting with Plotly as well as SymPy's capabilities.",
+    date: new Date("12 Sep 2022"),
+    tag: "Data Science",
+    urls: [
+        {
+            name: "Notebook",
+            link: "/portfolio/notebook/3.html",
+        },
+        {
+            name: "GitHub",
+            link: "https://github.com/pdlozano/curve_fitting",
+        },
+        {
+            name: "Google CoLab",
+            link: "https://colab.research.google.com/drive/1r68-THMajh2NTwqg7gnM3FTyAc1ZuqYF?usp=sharing",
+        },
+    ],
+    image: {
+        src: FeaturedImage,
+        alt: "Demonstration of both curve fitting algorithms in one graph",
+    },
+};
+
+This notebook was partly built for a school report to demonstrate two curve fitting algorithms
+which are Interpolation and Polynomial Regression. Instead of matplotlib, I opted to use plotly
+to make the plots interactive instead of static.
+
+## Process
+
+In the first step of the process, values of x and y were given. Since the purpose of this was a
+demonstration of the algorithms, random generation was done instead. Then, a plot was shown to
+visualize the given data.
+
+<PostImage src={Image1} alt="A graph of some given x and y values" />
+
+Second, the regression formulae was shown (below is the actual formula). The most common form of
+regression is the linear regression and the principle is the same for quadratic regression, cubic
+regression, and higher forms of regression. The goal is to make the line fit to the data in the
+best way possible.
+
+$$
+\left[
+\begin{matrix}
+    \sum y \\
+    \sum x_iy \\
+    \sum x_i^2y \\
+    ... \\
+    \sum x_i^{(n-1)} y
+\end{matrix}
+\right] =
+\left[
+\begin{matrix}
+    n & \sum x_i & \sum x_i^2 & ... & \sum x_i^{n-1} \\
+    \sum x_iy & ... & ... & ... & ... &\\
+    \sum x_i^2y & ... & ... & ... & ... &\\
+    ... & ... & ... & ... & \sum x_i^{2n-1}\\
+\end{matrix}
+\right]
+\left[
+\begin{matrix}
+    a_0 \\
+    a_1 \\
+    ... \\
+    a_{n-1} \\
+\end{matrix}
+\right]
+$$
+
+As this was again built for a school report, the step-by-step process to find the variables was
+shown in the next steps before arriving at a single final equation. Afterwards, the equation was
+graphed with the original data on top.
+
+<PostImage
+    src={Image2}
+    alt="A graph of some given x and y values with the graph of the quadratic equation on top"
+/>
+
+As seen in the above graph, only one point is very close to the curve but the curve itself shows
+the trends in the data and can be used to predict future values which can be useful for things
+like finance or logistics.
+
+Next, Newton interpolation was then done whose formula is shown below. The step-by-step process
+to find the variables are then shown before proceeding to graphing the line and the data.
+
+$$
+f(x) = f(x_0) + \sum_{i=1}^{n-1} \Delta_{0,i} \prod_{j=0}^i (x-x_j)
+$$
+
+As shown in the above graph, the Newton interpolation actually tries to fit every point in a
+single line. This is useful for predicting missing values. For example, imagine if you had data
+for Sunday and Tuesday but not Monday. One way to fill in the missing value is to use the
+value from interpolation.
+
+<PostImage
+    src={Image3}
+    alt="A graph of some given x and y values with the graph of the interpolation equation on top"
+/>
+
+Afterwards, several graphs are then shown to demonstrate both algorithms together. Below is a
+graph of both regression and interpolation on `sin(x)`.
+
+<PostImage
+    src={Image4}
+    alt="A graph of some given x and y values with the graph of both algorithms"
+/>
+
+export default ({ children }) => <PortfolioItem {...meta}>{children}</PortfolioItem>;

@@ -1,0 +1,48 @@
+import PortfolioItem from "../components/PortfolioItem";
+import PostImage from "../components/PostImage";
+import FeaturedImage from "../public/portfolio/1.0.jpeg";
+import Image1 from "../public/portfolio/1.1.jpeg";
+import Image2 from "../public/portfolio/1.2.jpeg";
+import Image3 from "../public/portfolio/1.3.jpeg";
+export const meta = {
+    title: "Trivia App",
+    description: "This is a small web app that quizzes you on various topics. I myself am shocked by how niche some questions can be. Try it out and see how much you get",
+    date: new Date("10 Aug 2022"),
+    tag: "Web Development",
+    urls: [
+        {
+            name: "GitHub",
+            link: "https://github.com/pdlozano/trivia",
+        },
+        {
+            name: "Website Link",
+            link: "https://trivia.davidlozano.me",
+        },
+    ],
+    image: {
+        src: FeaturedImage,
+        alt: "A look on the homepage of the trivia app.",
+    },
+};
+
+This is a small web app that tests you on various topics. The data for the web app comes from [the
+Open Database Trivia API][0] which has three difficulty levels and twenty-four different categories.
+The web app is designed to be playable even with a keyboard so that even people with motor
+disabilities can only use one to move to the next section. It also takes color blindness into account
+by creating different patterns for a "Correct answer" and a "Wrong answer".
+
+<PostImage src={Image1} alt="App Interface when no choice is made" />
+
+I made this game originally to play it with other people during the pandemic. To make it fun, make
+a rule that no one is allowed to Google. Of course, the game won't actually stop you but keep that
+rule so that it makes it fair.
+
+Two limitations of the website is that there is no way to backtrack and that you cannot know the
+correct answer if you made the wrong guess.
+
+<PostImage src={Image2} alt="App Interface when a wrong choice is made" />
+<PostImage src={Image3} alt="App Interface when a right choice is made" />
+
+[0]: https://opentdb.com/
+
+export default ({ children }) => <PortfolioItem {...meta}>{children}</PortfolioItem>;

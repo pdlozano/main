@@ -1,0 +1,46 @@
+import PortfolioItem from "../components/PortfolioItem";
+import PostImage from "../components/PostImage";
+import FeaturedImage from "../public/portfolio/2.0.jpeg";
+import Image1 from "../public/portfolio/2.1.jpeg";
+export const meta = {
+    title: "Pokémon Team App",
+    description: "This app was built during the the days when I was still trying to get into competitive Pokémon. It helps you build a roster of Pokémon and moves but overall, this project is less superior to Pikalytics or Pokémon Showdown",
+    date: new Date("12 Aug 2022"),
+    tag: "Web Development",
+    urls: [
+        {
+            name: "GitHub",
+            link: "https://github.com/pdlozano/pokemon",
+        },
+        {
+            name: "Website Link",
+            link: "https://pokemon.davidlozano.me",
+        },
+    ],
+    image: {
+        src: FeaturedImage,
+        alt: "Screenshot of the Pokémon web app homepage",
+    },
+};
+
+This web app built using NextJS was created during a time when I was still exploring competitive
+Pokémon. I wanted to create an app that helps me build a Pokémon team while making sure it does not
+have many weaknesses or at the very least covers a lot of teams.
+
+This app uses data from [PokéAPI][0] for movesets and sprites. There are many limitations to this
+app and I recommend you use [Pikalytics][1] or [Showdown][2] if you want to build a competitive
+team. This app was built more to demonstrate my skills in NextJS, web accessibility, and ability
+to get data from APIs.
+
+<PostImage src={Image1} alt="Screenshot of the website with one Pokemon having an empty moveset." />
+
+And if you want to challenge me to a battle, go message me. I prefer the VGC format over the Smogon
+Singles format, but I can still play it if you want to.
+
+**NOTE**: Pokémon and Pokémon character names are trademarks of Nintendo.
+
+[0]: https://pokeapi.co/
+[1]: https://www.pikalytics.com/team
+[2]: https://play.pokemonshowdown.com/teambuilder
+
+export default ({ children }) => <PortfolioItem {...meta}>{children}</PortfolioItem>;

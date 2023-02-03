@@ -17,14 +17,13 @@ type PostListPageProps = {
 };
 
 function PostListPage(props: PostListPageProps) {
-    const data = props.data.sort((a, b) => b.date - a.date);
     const [search, setSearch] = useState<string>("");
     const [items, setItems] = useState<{
         id: string;
         title: string;
         description: string;
-    }[]>(data);
-    const fuse = new Fuse(data, {
+    }[]>(props.data);
+    const fuse = new Fuse(props.data, {
         keys: ["title", "description"],
         threshold: 0.4
     });
@@ -51,7 +50,7 @@ function PostListPage(props: PostListPageProps) {
                 <input type="submit" onClick={(event) => {
                     event.preventDefault();
                     if (search === "") {
-                        setItems(data);
+                        setItems(props.data);
                     } else {
                         setItems(fuse.search(search).map(({ item }) => item));
                     }
@@ -83,14 +82,14 @@ const getStaticProps: GetStaticProps = async () => {
             ...meta,
             draft: meta.draft || false,
             id: file.split(".")[0],
-            date: parseInt(meta.date),
+            date: meta.date.getTime() as number,
         };
     });
     const data = await Promise.all(dataAsync);
 
     return {
         props: {
-            data: data.filter(({ draft }) => !draft),
+            data: data.filter(({ draft }) => !draft).sort((a, b) => b.date - a.date),
         }
     };
 };
