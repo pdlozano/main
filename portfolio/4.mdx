@@ -1,0 +1,133 @@
+import PortfolioItem from "../components/PortfolioItem";
+import PostImage from "../components/PostImage";
+import FeaturedImage from "../public/portfolio/4.0.png";
+import Image1 from "../public/portfolio/4.1.png";
+import Image2 from "../public/portfolio/4.2.png";
+import Image2Mobile from "../public/portfolio/4.2--mobile.png";
+import Image3 from "../public/portfolio/4.3.png";
+import Image3Mobile from "../public/portfolio/4.3--mobile.png";
+import Image4 from "../public/portfolio/4.4.png";
+import Image4Mobile from "../public/portfolio/4.4--mobile.png";
+import Image5 from "../public/portfolio/4.5.png";
+import Image5Mobile from "../public/portfolio/4.5--mobile.png";
+export const meta = {
+    title: "Differentiating between footwear",
+    description: "This AI project aimed to classify different types of footwear - specifically shoes, boots, and sandals. The goal is to create an AI model that is able to recognize and classify shoes based on the images of the footwear in retail.",
+    date: new Date("25 Nov 2022"),
+    tag: "Data Science",
+    urls: [
+        {
+            name: "Notebook",
+            link: "/portfolio/notebook/4.html",
+        },
+        {
+            name: "GitHub",
+            link: "https://github.com/pdlozano/shoe-sandal-boot",
+        },
+    ],
+    image: {
+        src: FeaturedImage,
+        alt: "Classification results from the best performing model. Out of 32 images, only 2 were wrongly classified.",
+    },
+};
+
+This deep learning project aims to classify different types of footwear (shoes, boots, and sandals)
+from each other. The goal was to create an AI model that categorizes each footwear based on their
+images. This model can be used to help sort different products in an e-commerce website focusing
+on footwear to help save time categorizing. 15,000 images were used for this task and an accuracy of
+95.54% was achieved with the best performing model.
+
+Both neural networks and convolutional neural networks were used to build the model. The process
+started with exploratory data analysis and then creating simple models and gradually it more
+complex through experimentation. The model was saved in a `.pt` file that can be reused by other
+scripts or improved upon.
+
+## Methods and Results
+
+[The data source for this project is sourced from Kaggle][0]. This data contained 15,000 images in
+total with 5,000 images for each category. The first step was to do explore the data and see if
+there are errors in the dataset. For example, the dataset might contain images that are labeled
+"boots" but are actually "sandals". This is important as it would affect the performance and the
+metrics of the final model.
+
+<PostImage src={Image1} alt="Nine sample images from the dataset" />
+
+After doing so, the data was prepared for modeling. It was split into three types of bins. 12,000
+images were used for training the actual model. 2,250 were used to validate the model and 750 were
+used for testing.
+
+The purpose of validating data is to validate that the model is actually learning. In other words,
+it's to make sure the model isn't just memorizing which images are shoes, sandals, and boots.
+Since I created different models, the validation data will also be used to compare these models
+from each other. However, the test data will be the "final test" so to speak. It is where the best
+performing model will be tested on to determine if it's good enough.
+
+Four models were then created. The goal was to move from simple to more complex rather than the
+other way around. Since complexity usually has a performance tradeoff in terms of speed, I did
+simple first to ensure that I am not over engineering.
+
+The first model (I call it "Model V0") is the simplest model containing only two layers. It was
+able to achieve respectable 89.02% accuracy. The below images show the confusion matrix and sample
+predictions. You can see in the confusion matrix below that the model is mostly getting wrong about
+shoes. It has predicted 99 shoes as sandals. Furthermore, it has predicted 42 boots as sandals and
+42 boots as shoes. While 89.02% accuracy is respectable, we can still do better without sacrificing
+much performance.
+
+<PostImage
+    src={Image2} mobile={Image2Mobile}
+    alt="A confusion matrix and sample results from the first model (Model V0)"
+/>
+
+The second model (called "Model V1") contains layers that add "non-linearity". In English, this
+means that our network is assuming that our data cannot be predicted by using straight lines.
+With this improvement, the model now can predict 89.87% of images correctly. However, unlike
+the first model, most errors the model is making is predicting sandals as shoes.
+
+<PostImage
+    src={Image3} mobile={Image3Mobile}
+    alt="A confusion matrix and sample results from the first model (Model V1)"
+/>
+
+The third model (called "Model V2") adds another layer or decision maker. However, as seen
+below, this actually makes the model worse. This model has an accuracy of 78.13% which is
+the lowest by far. It also makes a lot of errors in classifying boots as shoes, sandals as
+shoes, and shoes as sandals. The added complexity did not help but actually made the model
+worse.
+
+<PostImage
+    src={Image4} mobile={Image4Mobile}
+    alt="A confusion matrix and sample results from the first model (Model V2)"
+/>
+
+Finally, a fourth model (called "Model V3") makes use of "Convolution" - a method which has
+been known to perform really well on images which is what we are using. I expected this
+model to perform the best among the four in terms of accuracy and as seen below, I was
+correct in this hunch.
+
+In terms of accuracy, it has predicted 96.49% of footwear correctly. Its errors mostly
+consisted of mispredicting shoes as sandals, sandals as shoes, boots as shoes, and
+boots as sandals.
+
+<PostImage
+    src={Image5} mobile={Image5Mobile}
+    alt="A confusion matrix and sample results from the first model (Model V3)"
+/>
+
+With that, it is clear that the most accurate model is the final model. It is then taken
+to the final test of the test set. With this, it achieved 95.35% accuracy in predicting
+which footwear is which. The model was then saved so that it can be used again.
+
+## Conclusion and Caveats
+
+While the final model is the best performing model in terms of accuracy, it was not tested
+in terms of hardware performance. The performance isn't likely to be horrible, and it is
+likely to still predict 500 images in a few seconds, but it is worth noting to perform
+tests on actual hardware you are going to use.
+
+Furthermore, the images has to be in a white background for the model to do its job best.
+However, since the target of this is e-commerce where most products are photographed with
+white backgrounds, this isn't much of a concern, but it is a caveat worth remembering.
+
+[0]: https://www.kaggle.com/datasets/hasibalmuzdadid/shoe-vs-sandal-vs-boot-dataset-15k-images
+
+export default ({ children }) => <PortfolioItem {...meta}>{children}</PortfolioItem>;

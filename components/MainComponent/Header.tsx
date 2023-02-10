@@ -33,9 +33,6 @@ function Header() {
                             <Link href="/about">About</Link>
                         </li>
                         <li className="header-item">
-                            <Link href="/blog">Blog</Link>
-                        </li>
-                        <li className="header-item">
                             <Link href="/portfolio">Portfolio</Link>
                         </li>
                     </ul>
