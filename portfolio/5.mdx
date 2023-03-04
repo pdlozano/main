@@ -1,0 +1,118 @@
+import PortfolioItem from "../components/PortfolioItem";
+import PostImage from "../components/PostImage";
+import FeaturedImage from "../public/portfolio/5.0.png";
+import Image1 from "../public/portfolio/5.1.png";
+import Image2 from "../public/portfolio/5.2.png";
+import Image3 from "../public/portfolio/5.3.png";
+import Image4 from "../public/portfolio/5.4.png";
+export const meta = {
+    title: "Comparing Quality of Lemons",
+    description: "This project aims to classify whether a lemon is good or bad. I used existing AI models and tailored them to do the existing task.",
+    date: new Date("20 Jan 2023"),
+    tag: "Data Science",
+    urls: [
+        {
+            name: "Notebook",
+            link: "/portfolio/notebook/5.html",
+        },
+        {
+            name: "GitHub",
+            link: "https://github.com/pdlozano/lemon-quality",
+        },
+    ],
+    image: {
+        src: FeaturedImage,
+        alt: "Classification results from the best performing model. From 32 images, only one was misclassified.",
+    },
+};
+
+This project aims to classify lemons into two categories: good or bad. A third category is also done
+named "Empty Background" so that if there are no lemons in the picture, the model is not going to
+do random guesses.
+
+The dataset for the model comes from [the lemon quality dataset][0]. Instead of creating new models,
+I used existing models and tailored them to the existing task. This greatly sped up the process while
+keeping an extremely high accuracy. A demonstration of deployment is also shown so that the model is
+ready to use.
+
+## Methods and Results
+
+The first step of the process is to first explore the data. I wanted to explore the labels and the
+images to determine if there is something wrong with the data first before proceeding. Based on the
+few samples I took, there didn't seem to be anything wrong so I immediately proceeded to preprocessing
+the data for creating the model.
+
+The preprocessing part was important since the model needs the data in a certain way to learn. Imagine
+if someone gave you a book written in another language and told you to learn it. Without translating it
+to something you can understand, at best you are guessing.
+
+Afterwards, a few helper functions were created for use with the training. Then, the first model was trained.
+This first model was the [EfficientNetB0 model][1]. I used the simplest model since my philosophy is to start
+simple before proceeding to more complex models. The reason is that if the simplest model performs well enough,
+why use even more complex models? However, if you want to use the more complex models, the process in the
+notebook is the same.
+
+Furthermore, I did not use a simple accuracy function but rather something more suited to the dataset which is
+[the f1-score][2]. The reason for this is because we do not have equal amounts of data for the good quality
+lemons, bad quality lemons, and empty backgrounds.
+
+To illustrate further, imagine if a dataset has 30 items of category A and 5 items of category B. A model can
+simply cheat the accuracy function by guessing everything as category A since it will still get a score of 0.86.
+However, an f1 score will give it a score of 0.46 since it did not guess anything in category B.
+
+The first model achieves an f1 score of 0.987. The confusion matrix of the model is shown below.
+
+<PostImage src={Image1} alt="A confusion matrix of the first model showing its predictions." />
+
+The same process and philosophy was done for the second model: [EfficientNet V2 S model][3]. It achieves an
+f1 score of 0.984. The confusion matrix of the model is shown below.
+
+<PostImage src={Image2} alt="A confusion matrix of the second model showing its predictions." />
+
+Finally, the [MobileNetV3 S model][4] was used with the same philosophy and process. This model achieves an f1
+score of 0.995. The confusion matrix of the model is shown below.
+
+<PostImage src={Image3} alt="A confusion matrix of the first model showing its predictions." />
+
+However, it must be noted that even though I also took into account the f1-score, what I was really most
+interested in was the type of errors the model was making. After all, this was a lemon quality checker model. If
+this was used in a supermarket to sort lemons, it is much better for a model to make more "False negatives" than
+"False positives". That is, it is better for a model to predict good quality lemons as bad than the reverse.
+This simple fact is what made me choose the right model - which is MobileNetV3 which only made 1 false negative
+from the training dataset. This model was then tested on another dataset for the final test and it made 4 false
+negatives. The confusion matrix is shown below.
+
+<PostImage src={Image4} alt="A confusion matrix of the first model showing its predictions." />
+
+I also created a deployment API using Flask that can be run on the side to use the model although a module of it
+was also made available (including the `.pt` files).
+
+Afterwards, I tested the model on even more data. First, I tested it on the same images but flipped horizontally
+(or mirrored so to speak). To us, it is the same image but to a machine it is a different image. With this, it
+still performed extremely well as shown below.
+
+Then, I tested it on three images from Unsplash and it was still able to predict which lemons were good, which
+ones were bad, and which ones were an empty background. It seems that the model is generalizable.
+
+## Conclusion and Caveats
+
+With all of this, I can confidently say that the model has good performance on not just the original dataset but
+also on images it has never seen before. However, before deploying this, we must note of a few caveats:
+
+1. **The model has not been tested to run on mobile devices**. In summary, this model might run extremely poorly
+   on devices that are slower than my laptop. However, the limitation here is more on a lack of testing rather
+   than actual performance. I am mostly certain it will run but just slower.
+2. **The model can only test one lemon at a time**. If you try to make the model predict which lemons are good,
+   and which ones are bad in a batch of lemons, it cannot say so. We have to make sure the model only sees one
+   lemon at a time.
+
+However, with all things said and considered, I say that the model is still extremely usable in certain situations
+like warehouses which can lessen the time it takes to sort the fruits.
+
+[0]: https://www.kaggle.com/datasets/yusufemir/lemon-quality-dataset
+[1]: https://arxiv.org/abs/1905.11946
+[2]: https://en.wikipedia.org/wiki/F-score
+[3]: https://arxiv.org/abs/2104.00298
+[4]: https://arxiv.org/abs/1905.02244
+
+export default ({ children }) => <PortfolioItem {...meta}>{children}</PortfolioItem>;
