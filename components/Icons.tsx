@@ -27,7 +27,7 @@ function Icons(props: IconProps) {
     return (
         <div className="flex flex-wrap">
             <Icon
-                href="mailto:hello@davidlozano.me"
+                href="mailto:pauldavidlozano@gmail.com"
                 label="Email"
                 icon={<Mail />}
             />

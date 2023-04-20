@@ -21,7 +21,7 @@ function Body() {
                     and dashboards I build are understandable and human.</p>
 
                 <p>If you want to collaborate on a project, feel free to message me through my email
-                    (hello@davidlozano.me).</p>
+                    (pauldavidlozano@gmail.com).</p>
             </div>
         </div>
     );
